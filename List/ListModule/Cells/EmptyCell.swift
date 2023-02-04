@@ -21,6 +21,8 @@ final class EmptyCell: UITableViewCell {
     
     private let iconView: UIImageView = {
         let iconView = UIImageView()
+        iconView.layer.cornerRadius = 12
+        iconView.clipsToBounds = true
         iconView.translatesAutoresizingMaskIntoConstraints = false
         return iconView
     }()

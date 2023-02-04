@@ -88,6 +88,11 @@ class ListViewController: UIViewController {
     }
     
     private func updateTableView() {
+        let emptyCellModel = ListCellsDataModel.empty(.init(title: "No data", subtitle: "Table view has nothing to display", icon: "shoe"))
+        if data.isEmpty {
+            data.append(emptyCellModel)
+        }
+        
         var snapshot = NSDiffableDataSourceSnapshot<Int, ListCellsDataModel>()
         snapshot.appendSections([0])
         snapshot.appendItems(data, toSection: 0)
@@ -96,6 +101,11 @@ class ListViewController: UIViewController {
     
     @objc func addCell() {
         counter += 1
+        let emptyCellModel = ListCellsDataModel.empty(.init(title: "No data", subtitle: "Table view has nothing to display", icon: "shoe"))
+        if data.contains(emptyCellModel) {
+            data.remove(at: 0)
+        }
+        
         data.append(ListCellsDataModel.list2(.init(
             title: "Added cell \(counter)",
             subtitle: "This cell was added by button"

@@ -165,9 +165,9 @@
 		B945C7FA298EDB720071F355 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B945C7EA298E6A0C0071F355 /* ListCell1.swift */,
 				B945C7EC298E6A160071F355 /* ListCell2.swift */,
 				B945C7EE298E6A1E0071F355 /* EmptyCell.swift */,
-				B945C7EA298E6A0C0071F355 /* ListCell1.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
