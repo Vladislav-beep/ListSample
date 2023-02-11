@@ -23,6 +23,7 @@
 		B945C7F3298E71650071F355 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945C7F2298E71650071F355 /* UITableViewCell+Extensions.swift */; };
 		B945C7F5298E73F00071F355 /* ListCellsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945C7F4298E73F00071F355 /* ListCellsDataModel.swift */; };
 		B945C7F7298EC3BC0071F355 /* ListTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945C7F6298EC3BC0071F355 /* ListTableViewDataSource.swift */; };
+		B945C802299798400071F355 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945C801299798400071F355 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B945C7F2298E71650071F355 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		B945C7F4298E73F00071F355 /* ListCellsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellsDataModel.swift; sourceTree = "<group>"; };
 		B945C7F6298EC3BC0071F355 /* ListTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewDataSource.swift; sourceTree = "<group>"; };
+		B945C801299798400071F355 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		B945C7B9298E5FEE0071F355 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				B945C8002997982D0071F355 /* DetailsModule */,
 				B945C7F9298EDB5F0071F355 /* ListModule */,
 				B945C7F8298EDB4B0071F355 /* Extensions */,
 				B945C7BA298E5FEE0071F355 /* AppDelegate.swift */,
@@ -170,6 +173,14 @@
 				B945C7EE298E6A1E0071F355 /* EmptyCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B945C8002997982D0071F355 /* DetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				B945C801299798400071F355 /* DetailsViewController.swift */,
+			);
+			path = DetailsModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 				B945C7BF298E5FEE0071F355 /* ListViewController.swift in Sources */,
 				B945C7BB298E5FEE0071F355 /* AppDelegate.swift in Sources */,
 				B945C7F7298EC3BC0071F355 /* ListTableViewDataSource.swift in Sources */,
+				B945C802299798400071F355 /* DetailsViewController.swift in Sources */,
 				B945C7F5298E73F00071F355 /* ListCellsDataModel.swift in Sources */,
 				B945C7F1298E70210071F355 /* UITableView+Extension.swift in Sources */,
 				B945C7BD298E5FEE0071F355 /* SceneDelegate.swift in Sources */,

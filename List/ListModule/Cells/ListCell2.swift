@@ -90,4 +90,3 @@ final class ListCell2: UITableViewCell {
         subtitleLabel.text = displayData.subtitle
     }
 }
-

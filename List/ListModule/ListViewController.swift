@@ -57,6 +57,7 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         updateTableView()
+        listTableView.delegate = self
     }
     
     // MARK: Private
@@ -99,6 +100,29 @@ class ListViewController: UIViewController {
         tableViewDataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    private func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(
+            style: .destructive,
+            title: "Delete"
+        ) { [weak self] (action, view, completion) in
+            guard let self = self else { return }
+            
+            guard let item = self.tableViewDataSource.itemIdentifier(for: indexPath) else { return }
+            switch item {
+            case .list1, .empty:
+                break
+                
+            case .list2:
+                self.data.remove(at: indexPath.item)
+                self.updateTableView()
+            }
+            
+            completion(true)
+        }
+        action.image = UIImage(systemName: "trash")
+        return action
+    }
+    
     @objc func addCell() {
         counter += 1
         let emptyCellModel = ListCellsDataModel.empty(.init(title: "No data", subtitle: "Table view has nothing to display", icon: "shoe"))
@@ -119,5 +143,33 @@ class ListViewController: UIViewController {
         }
         data.removeLast()
         updateTableView()
+    }
+}
+
+extension ListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let item = tableViewDataSource.itemIdentifier(for: indexPath) else { return }
+        
+        switch item {
+        case .list2(let model):
+            present(DetailsViewController(title: model.title, subtitle: model.subtitle), animated: true)
+            
+        case .list1, .empty:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let item = self.tableViewDataSource.itemIdentifier(for: indexPath) else { return nil }
+        switch item {
+        case .list1, .empty:
+            return nil
+            
+        case .list2:
+            let delete = deleteAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [delete])
+        }
     }
 }
